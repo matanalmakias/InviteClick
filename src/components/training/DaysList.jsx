@@ -4,10 +4,6 @@ import "./style.scss";
 // -----------------------HourList ----------------------------
 
 const HourList = ({ selectedDay }) => {
-  if (!selectedDay) {
-    return <div>בחר יום לצפייה בשעות פנויות</div>;
-  }
-
   return (
     <div>
       {selectedDay &&
@@ -104,6 +100,7 @@ const DaysList = () => {
 
   return (
     <div className="days-list">
+      <div>בחר יום לצפייה בשעות פנויות</div>
       <HourList selectedDay={selectedDay} />
       {dates.map((dateStr) => {
         const date = new Date(dateStr);
@@ -124,7 +121,7 @@ const DaysList = () => {
             onClick={() => handleDaySelect(dateStr)}
           >
             {selectedDay === dateStr
-              ? `סגור -  ${formattedDate}`
+              ? `סגירה >  ${formattedDate}`
               : formattedDate}
           </div>
         );

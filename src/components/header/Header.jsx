@@ -7,7 +7,7 @@ const Header = () => {
   const nav = useNavigate();
   return (
     <div className="header justify-content-center align-items-center d-flex flex-column">
-      <img className="logo-img" src={logo} alt="" />
+      <img onClick={() => nav("/")} className="logo-img" src={logo} alt="" />
       <button onClick={() => nav("/manager")} className="manager-move-btn ">
         דף מנהלים
       </button>
