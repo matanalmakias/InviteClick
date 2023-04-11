@@ -1,0 +1,23 @@
+.days-list__day {
+  cursor: pointer;
+}
+.days-list__day:active {
+  background-color: white !important;
+  color: rgb(106, 106, 106) !important;
+}
+.pagination__page-number {
+  background-color: rgb(206, 114, 81);
+  color: white;
+  padding: 5px;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: 0.1s;
+}
+.pagination__page-number:hover {
+  background-color: white;
+  color: rgb(206, 114, 81);
+}
+.pagination__page-number::after {
+  background-color: rgb(255, 237, 237);
+  color: rgb(206, 114, 81);
+}
