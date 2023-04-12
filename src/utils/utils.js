@@ -168,38 +168,5 @@ export const dates = Array.from({ length: 7 }, (_, i) => {
 export const user = {
   id: 1,
   phone: `0526757706`,
-  schudeledTrainings: [
-    {
-      id: v4(),
-
-      date: new Date("2023-05-10T15:30:00"),
-      title: "Machine Learning Fundamentals",
-      duration: 180,
-      user: `userId`,
-    },
-    {
-      id: v4(),
-
-      date: new Date("2023-05-10T15:30:00"),
-      title: "Machine Learning Fundamentals",
-      duration: 180,
-      user: `userId`,
-    },
-    {
-      id: v4(),
-
-      date: new Date("2023-05-10T15:30:00"),
-      title: "Machine Learning Fundamentals",
-      duration: 180,
-      user: `userId`,
-    },
-    {
-      id: v4(),
-
-      date: new Date("2023-05-10T15:30:00"),
-      title: "Machine Learning Fundamentals",
-      duration: 180,
-      user: `userId`,
-    },
-  ],
+  schudeledTrainings: [1, 3, 5],
 };

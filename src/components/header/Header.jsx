@@ -13,14 +13,13 @@ const Header = ({ count }) => {
       <button onClick={() => nav("/manager")} className="manager-move-btn ">
         דף מנהלים
       </button>
-      {count > 0 && (
-        <p
-          onClick={() => nav("/user")}
-          className="m-1 bg-secondary btn p-1 w-100 text-white"
-        >
-          מס' אימונים מתוזמנים: {count} - לחץ כאן לרשימת האימונים שלך
-        </p>
-      )}
+
+      <p
+        onClick={() => nav("/user")}
+        className="m-1 bg-secondary btn p-1 w-100 text-white"
+      >
+        מס' אימונים מתוזמנים: {count} - לחץ כאן לרשימת האימונים שלך
+      </p>
     </div>
   );
 };

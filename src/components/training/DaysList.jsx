@@ -87,7 +87,10 @@ const DaysList = ({ setCount }) => {
     .sort((a, b) => new Date(a) - new Date(b))
     .slice((currentPage - 1) * datesPerPage, currentPage * datesPerPage);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => {
+    setSelectedDay(null);
+    setCurrentPage(pageNumber);
+  };
 
   const pageNumbers = Math.ceil(
     Object.keys(groupedByDate).length / datesPerPage
@@ -127,17 +130,17 @@ const DaysList = ({ setCount }) => {
             onClick={() => handleDaySelect(dateStr)}
           >
             {selectedDay === dateStr ? (
-              <p className="bg-danger p-2">{formattedDate}</p>
+              <p className="bg-danger p-3">{formattedDate}</p>
             ) : (
               formattedDate
             )}
-            <p className="">
+            <p className="p-1">
               {activeItems} / {selectedItem.length} :מצב
             </p>
           </div>
         );
       })}
-      {selectedDay && (
+      {selectedDay !== null && (
         <div className="days-list__sessions">
           {groupedByDate[selectedDay].map((session) => {
             return (

@@ -1,5 +1,5 @@
 import "../style.scss";
-import UserTrainingList from "./UserTrainingList";
+import UserTrainingList from "./Training/UserTrainingList";
 const User = () => {
   return (
     <div>

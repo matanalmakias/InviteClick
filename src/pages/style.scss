@@ -5,3 +5,14 @@
 .hide_class {
   display: none;
 }
+.bg-secondary hr {
+  border-top: 2px solid #ccc;
+  margin: 20px 0;
+}
+
+.bg-secondary .index {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0;
+}
