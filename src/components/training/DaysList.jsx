@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { trainingList, user } from "../../utils/utils";
 import "./style.scss";
 // -----------------------HourList ----------------------------
@@ -17,10 +17,9 @@ const HourList = ({ selectedDay }) => {
 };
 // -----------------------TrainingSession ----------------------------
 
-const TrainingSession = ({ item, title, duration }) => {
+const TrainingSession = ({ setCount, item, title, duration }) => {
   const schudleTraining = () => {
-    user.schudeledTrainings.push(item);
-    console.log(user);
+    setCount((state) => state + 1);
   };
 
   return (
@@ -30,7 +29,7 @@ const TrainingSession = ({ item, title, duration }) => {
         {duration} minutes
       </div>
       <button onClick={() => schudleTraining()} className="p-1">
-        קבע אימון{" "}
+        קבע אימון
       </button>
     </div>
   );
@@ -58,7 +57,7 @@ const FilteredDayItem = ({ day, onDaySelect }) => {
 };
 
 // -----------------------Days List ----------------------------
-const DaysList = () => {
+const DaysList = ({ setCount }) => {
   const [selectedDay, setSelectedDay] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [datesPerPage] = useState(5);
@@ -104,6 +103,13 @@ const DaysList = () => {
       <HourList selectedDay={selectedDay} />
       {dates.map((dateStr) => {
         const date = new Date(dateStr);
+        const selectedItem = groupedByDate[dateStr];
+        let activeItems = 0;
+        selectedItem.forEach((item, index) => {
+          if (item.user !== null) {
+            activeItems = activeItems + 1;
+          }
+        });
         const formattedDate = isNaN(date)
           ? ""
           : date.toLocaleDateString("he-IL", {
@@ -123,19 +129,25 @@ const DaysList = () => {
             {selectedDay === dateStr
               ? `סגירה >  ${formattedDate}`
               : formattedDate}
+            <p className="">
+              {activeItems} / {selectedItem.length}
+            </p>
           </div>
         );
       })}
       {selectedDay && (
         <div className="days-list__sessions">
-          {groupedByDate[selectedDay].map((session) => (
-            <TrainingSession
-              item={session}
-              key={session.date.toString()}
-              title={session.title}
-              duration={session.duration}
-            />
-          ))}
+          {groupedByDate[selectedDay].map((session) => {
+            return (
+              <TrainingSession
+                setCount={setCount}
+                item={session}
+                key={session.date.toString()}
+                title={session.title}
+                duration={session.duration}
+              />
+            );
+          })}
         </div>
       )}
       <div className="pagination">
