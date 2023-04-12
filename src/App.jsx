@@ -7,6 +7,7 @@ import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import Manager from "./pages/Manager";
 import Home from "./pages/home/Home";
+import User from "./pages/user/User";
 function App() {
   const [count, setCount] = useState(0);
   const { isLoggedIn } = useContext(AuthContext);
@@ -18,6 +19,7 @@ function App() {
       <Header count={count} />
       <Routes>
         <Route path="/" element={<Home setCount={setCount} />} />
+        <Route path="/user" element={<User />} />
         <Route path="/manager" element={<Manager />} />
       </Routes>
     </div>

@@ -126,11 +126,13 @@ const DaysList = ({ setCount }) => {
             }`}
             onClick={() => handleDaySelect(dateStr)}
           >
-            {selectedDay === dateStr
-              ? `סגירה >  ${formattedDate}`
-              : formattedDate}
+            {selectedDay === dateStr ? (
+              <p className="bg-danger p-2">{formattedDate}</p>
+            ) : (
+              formattedDate
+            )}
             <p className="">
-              {activeItems} / {selectedItem.length}
+              {activeItems} / {selectedItem.length} :מצב
             </p>
           </div>
         );
